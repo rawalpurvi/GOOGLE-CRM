@@ -1,0 +1,119 @@
+{% extends 'nav.html' %}
+{% block title %}Add Contact{% endblock %}
+{% block content %}
+
+
+  <!--Section: Contact v.2-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        
+                <section class="mb-4">
+        
+                    <!--Section heading-->
+                    <h2 class="h1-responsive font-weight-bold text-center my-4">{{ name }}</h2>
+                    <!--Section description-->
+                    <p class="text-center w-responsive mx-auto mb-5">Create contact for {{ email }}</p>
+                
+                    <div class="row">
+                
+                        <!--Grid column-->
+                        <div class="col-md-9 mb-md-0 mb-5">
+                            <form id="contact-form" name="contact-form" method="POST" action="/add_contact">
+                                {{ form.csrf_token }}
+                                <!--Grid row-->
+                                <div class="row">
+                
+                                    <!--Grid column-->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            {{ form.first_name(class_ = 'form-control', autofocus = true) }}
+                                            {% for err in form.first_name.errors %}
+					                            <span style="color: red">{{ err }}</span>
+					                        {% endfor %}
+                                            <!--input type="text" id="first_name" name="first_name" class="form-control"-->
+                                            <label for="first_name" class="">First Name</label>
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                
+                                    <!--Grid column-->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            {{ form.last_name(class_ = 'form-control', autofocus = true) }}
+                                            <!--input type="text" id="last_name" name="last_name" class="form-control"-->
+                                            <label for="last_name" class="">Last Name</label>
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                
+                                </div>
+                                <!--Grid row-->
+
+                                 <!--Grid row-->
+                                 <div class="row">
+                
+                                    <!--Grid column-->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            {{ form.country_name(class_ = 'form-control', placeholder='Select Country', autofocus = true) }}
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                
+                                    <!--Grid column-->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            {{ form.phone(class_ = 'form-control', placeholder='xxxxxxxxxx', autofocus = true) }}
+                                            {% for err in form.phone.errors %}
+					                            <span style="color: red">{{ err }}</span>
+					                        {% endfor %}
+                                            <!--input type="text" id="phone" name="phone" class="form-control md-phone"-->
+                                            <label for="phone" class="">Phone number</label>
+                                            <!--input type="text" id="country_name" name="country_name" class="form-control"-->
+                                            <!--label for="country_name" class="">Country</label-->
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                
+                                <!--Grid row-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            {{ form.email(class_ = 'form-control', autofocus = true) }}
+                                            {% for err in form.email.errors %}
+					                            <span style="color: red">{{ err }}</span>
+					                        {% endfor %}
+                                            <!--input type="text" id="email" name="email" class="form-control"-->
+                                            <label for="email" class="">Your email</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Grid row-->
+                
+                
+                            </form>
+                
+                            <div class="text-center text-md-left">
+                                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Create Contact</a>
+                            </div>
+                            <div class="status"></div>
+                        </div>
+                        <!--Grid column-->
+                
+                    </div>
+
+                <!--Section: Contact v.2-->
+                </section>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+

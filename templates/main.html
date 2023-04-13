@@ -1,0 +1,173 @@
+{% extends 'nav.html' %}
+{% block title %}Contacts{% endblock %}
+{% block content %}
+
+<!-- List all google contacts-->
+
+<!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold py-4">
+    {{ name }}
+  </h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add text-center mb-3 mr-2">
+        <p>Contact information of {{ email }}</p>
+      </span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <thead>
+          <tr>
+            <th class="text-center">Name</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Phone</th>
+            <th class="text-center">Country</th>
+            <th class="text-center">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for contact in contacts %}
+          <tr>
+            <td class="pt-3-half" contenteditable="false"><a href="" data-toggle="modal" class="text-primary" data-target="#{{ contact.resourceName }}" onclick="selectCountry('{{ contact.resourceName }}','{{ contact.country }}')">{{ contact.name }}</a></td>
+            <td class="pt-3-half" contenteditable="false">{{ contact.email }}</td>
+            <td class="pt-3-half" contenteditable="false">{{ contact.phone }}</td>
+            <td class="pt-3-half" contenteditable="false">{{ contact.country }}</td>
+            <td>
+              <span class="table-remove">
+                <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" data-id="{{ contact.resourceName }}">
+                  Delete
+                </button>
+              </span>
+            </td>
+          </tr>
+
+          <!-- Model for edit information-->
+          <form method="POST" action="/edit_contact/{{ contact.resourceName }}" id="{{ contact.resourceName }}">
+          {{ form.csrf_token }}
+          <input type="hidden" id="etag_value" name="etag" value="{{ contact.etag }}">
+          <div class="modal fade" id="{{ contact.resourceName }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header text-center">
+                  <h4 class="modal-title w-100 font-weight-bold">Update Contact</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body mx-3">
+                  <div class="md-form mb-5 input-with-pre-icon">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    {{ form.first_name(class_ = 'form-control', value = contact.first_name , autofocus = true) }}
+                    {% for err in form.first_name.errors %}
+                          <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                    <!--input type="text" name="first_name" id="form34" class="form-control validate" value="{{ contact.first_name }}"-->
+                    <label for="form34">First Name</label>
+                  </div>
+
+                  <div class="md-form mb-5">
+                    <div class="md-form mb-5 input-with-pre-icon">
+                      <i class="fas prefix grey-text"></i>
+                      {{ form.last_name(class_ = 'form-control', value = contact.last_name, autofocus = true) }}
+                      <!--input type="text" name="last_name" id="form34" class="form-control validate" value="{{ contact.last_name }}"-->
+                    <label for="form34">Last Name</label>
+                  </div>
+
+                  <div class="md-form mb-5 input-with-pre-icon">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    {{ form.email(class_ = 'form-control', value = contact.email, autofocus = true) }}
+                    {% for err in form.email.errors %}
+					              <span style="color: red">{{ err }}</span>
+					          {% endfor %}
+                    <!--input type="email" id="form29" name= "email" class="form-control validate" value="{{ contact.email }}"-->
+                    <label for="form29">Email</label>
+                  </div>
+                  
+                  <div class="md-form mb-5 input-with-pre-icon">
+                    <i class="fas fa-globe prefix grey-text"></i>
+                    {{ form.country_name(class_ = 'form-control', placeholder='Select Country', autofocus = true) }}
+                    <!--input type="text" name="country_name" id="form32" class="form-control validate" value="{{ contact.country }}">
+                    <label data-error="wrong" data-success="right" for="form32">Country</label-->
+                  </div>
+
+                  <div class="md-form mb-5 input-with-pre-icon">
+                    <i class="fas fa-phone-square-alt prefix grey-text"></i>
+                    {{ form.phone(class_ = 'form-control', placeholder='xxxxxxxxxx', value=contact.phone, autofocus = true) }}
+                    {% for err in form.phone.errors %}
+					            <span style="color: red">{{ err }}</span>
+					          {% endfor %}
+                    <!--input type="text" name="phone" id="form32" class="form-control validate" value="{{ contact.phone }}"-->
+                    <label for="form32">Phone</label>
+                  </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                  <button type="submit" class="btn btn-unique">Save <i class="fas fa-paper-plane-o ml-1"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </form>
+          <!-- Model for edit information-->
+
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
+
+<!--End List-->
+
+<!-- Delete button -->
+<script>
+  const deleteBtns = document.querySelectorAll('.table-remove');
+      for (let i = 0; i < deleteBtns.length; i++) { 
+        const btn = deleteBtns[i];
+        btn.onclick = function(e) {
+			    const todoId = e.target.dataset['id'];
+          fetch('/contacts/'+ todoId +'/delete', {
+            method: 'DELETE'
+			    })
+          .then(response => response.json())
+          .then(jsonResponse => {
+            window.location.href = jsonResponse['url'];
+          })
+        }
+      }
+</script>
+
+<!-- Edit contact model open if error occurs -->
+<script>
+  
+  // Open model if error in update contacts
+  $(window).on('load',function(){
+    var model_show = '{{ show_modal_on_page_load }}'
+    var model_id = '{{ edit_resouceName }}'
+
+    // Open model with all the values
+    if (model_show == 'True') {
+      $('#'+model_id).modal('show');
+      var data = JSON.parse(' {{ data | safe }} ');
+      formObj = document.forms[model_id]
+      formObj.elements['first_name'].value = data.first_name
+      formObj.elements['last_name'].value = data.last_name
+      formObj.elements['phone'].value = data.phone
+      formObj.elements['email'].value = data.email
+      formObj.elements['country_name'].value = data.country_name
+      
+    }
+});
+
+// Function to set contry name 
+function selectCountry(formId,countryName){
+  //alert(countryName)
+  formObj = document.forms[formId]
+  formObj.elements['country_name'].value = countryName
+}
+</script>
+
+{% endblock %}
+

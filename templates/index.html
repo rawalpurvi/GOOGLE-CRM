@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>CRM - google login</title>
+  <meta name="google-site-verification" content="LXSqBbXb1V_TPfCQANX8Y8YL9RqJYHkNGUEfIUJfXvw" />
+  <meta name="google-signin-client_id" content="{{ GOOGLE_CLIENT_ID }}">
+  <!-- MDB icon >
+  <link rel="icon" href="{{ url_for('static',filename='img/mdb-favicon.ico') }}" type="image/x-icon"-->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/mdb.min.css') }}">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+<section class="container-fluid bg">
+    <section class="row justify-content-center">
+        <section class="col-12 col-sm-6 col-md-3">
+            <!--form class="form-container" method="post" action="/login_user_info"-->
+            <form class="form-container" method="post" action="/login">
+                <h2 class="header-text">Google - CRM</h2>
+                <br>
+                <div id="g_id_onload"
+                    data-client_id="{{ GOOGLE_CLIENT_ID }}"
+                    data-state= "{{ state }}"
+                    data-scope="profile"
+                    data-login_uri="/login"
+                    data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin"
+                    data-type="standard"
+                    data-size="large"
+                    data-theme="outline"
+                    data-text="sign_in_with"
+                    data-shape="rectangular"
+                    data-logo_alignment="left">
+                </div>
+            </section>
+    </section>
+</section>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<!-- JavaScript Bundle with Popper -->
+<!-- jQuery -->
+<script type="text/javascript" src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{{ url_for('static',filename='js/mdb.min.js') }}"></script>
+<!-- Your custom scripts (optional) -->
+<script type="text/javascript"></script>
+
+</body>
+</html>
