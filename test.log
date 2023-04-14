@@ -1,0 +1,60 @@
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 515-758-468
+INFO:werkzeug: * Detected change in '/Users/purvirawal/Applications/google-CRM/app.py', reloading
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 515-758-468
+INFO:werkzeug: * Detected change in '/Users/purvirawal/Applications/google-CRM/app.py', reloading
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 515-758-468
+INFO:werkzeug: * Detected change in '/Users/purvirawal/Applications/google-CRM/app.py', reloading
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 515-758-468
+INFO:werkzeug: * Running on http://127.0.0.1:8888/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 515-758-468
+DEBUG:google.auth.transport.requests:Making request: GET https://www.googleapis.com/oauth2/v1/certs
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://www.googleapis.com:443 "GET /oauth2/v1/certs HTTP/1.1" 200 1754
+DEBUG:requests_oauthlib.oauth2_session:Generated new state 3FtndteJBSY50Fq3OP9am5OQ2zQJ21.
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:34:32] "[32mPOST /login HTTP/1.1[0m" 302 -
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "707993879811-anbgr81rj7bml5r9sh8qp2mosvg70fll.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AVHEtk62aX54491JvBErsd1QSNMdQ7xcBfKs42nATpifrVMfyoT6AA7SeFw1nw7Zuyly6A', 'redirect_uri': 'https://a447-2600-1700-4541-2810-b0b3-4d44-7f16-9c97.ngrok.io/user_contact_info'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x10329b9d0>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '211', 'Authorization': 'Basic NzA3OTkzODc5ODExLWFuYmdyODFyajdibWw1cjlzaDhxcDJtb3N2ZzcwZmxsLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1SZmM2cXNyVzVkTHBZTENZeGhHbWNuS2ZtNXUz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AVHEtk62aX54491JvBErsd1QSNMdQ7xcBfKs42nATpifrVMfyoT6AA7SeFw1nw7Zuyly6A&redirect_uri=https%3A%2F%2Fa447-2600-1700-4541-2810-b0b3-4d44-7f16-9c97.ngrok.io%2Fuser_contact_info
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Date': 'Fri, 14 Apr 2023 17:34:33 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0Ael9sCMTyBiDs_2Uk-i721UQ84O8xlPw4UPPuO4haTd83oAVDVHLzTeYJMnBvZcEuYt0--JaohACsOrUEIpAYYllw9QkQjYHosqLlMySf738mkXRNZpwxEhB_XPXxxi79gQGQA1wtpatpTbx_djGiu83YSX1kQaCgYKAUsSARESFQF4udJhmNsSYwCIaVl-5mgOFk3-zw0165",
+  "expires_in": 3598,
+  "scope": "openid https://www.googleapis.com/auth/contacts https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+  "token_type": "Bearer",
+  "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijk2OTcxODA4Nzk2ODI5YTk3MmU3OWE5ZDFhOWZmZjExY2Q2MWIxZTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI3MDc5OTM4Nzk4MTEtYW5iZ3I4MXJqN2JtbDVyOXNoOHFwMm1vc3ZnNzBmbGwuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI3MDc5OTM4Nzk4MTEtYW5iZ3I4MXJqN2JtbDVyOXNoOHFwMm1vc3ZnNzBmbGwuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDEyNTg2NTIwNDMxMDAzODQ1NzUiLCJlbWFpbCI6InB1cnZpcmF3YWwud29ya0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6Imw0MDB0NTdVTDNnNFY1eXE0eDRVZ0EiLCJuYW1lIjoiUHVydmkgUmF3YWwiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUdObXl4YXZuTjdYSE9KbnVqaG0yUFRXRlNsVkFQWVcxaE9aQ3ZieVdjMXQ9czk2LWMiLCJnaXZlbl9uYW1lIjoiUHVydmkiLCJmYW1pbHlfbmFtZSI6IlJhd2FsIiwibG9jYWxlIjoiZW4iLCJpYXQiOjE2ODE0OTM2NzMsImV4cCI6MTY4MTQ5NzI3M30.os38eK8AIyp57eHjqVXeEBGaR3nS-JILHYBIxlTw871Ev0RtikzGTEyN9wwCTxk_dOXpozYL2CZlcttxkM0aNYr-fJPL6t2KG2b8A3wP-hCfMlfVj1i-CeqLOZ_1cHb7llDJOOSu4Jg7I6ZyGtKOyQPVH64DpvuaivCy1L5Xti1-wVYOVvE8dtCsS_0zMbO0eZzyDLR5vyJWtDuAo2CVEp9bWOV74Pln8R9ugKfv_2STeTzhe2yfEOeueiMA4wBAaXNkIoQFyGYcSw-LOIrfWLMcC6H7TpQIWLUHlIlSxGMBVtDz232MYS_4sAlAFrssIhx2LEkRMRcrqTbNYZ80hg"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0Ael9sCMTyBiDs_2Uk-i721UQ84O8xlPw4UPPuO4haTd83oAVDVHLzTeYJMnBvZcEuYt0--JaohACsOrUEIpAYYllw9QkQjYHosqLlMySf738mkXRNZpwxEhB_XPXxxi79gQGQA1wtpatpTbx_djGiu83YSX1kQaCgYKAUsSARESFQF4udJhmNsSYwCIaVl-5mgOFk3-zw0165', 'expires_in': 3598, 'scope': ['openid', 'https://www.googleapis.com/auth/contacts', 'https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'], 'token_type': 'Bearer', 'id_token': 'eyJhbGciOiJSUzI1NiIsImtpZCI6Ijk2OTcxODA4Nzk2ODI5YTk3MmU3OWE5ZDFhOWZmZjExY2Q2MWIxZTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI3MDc5OTM4Nzk4MTEtYW5iZ3I4MXJqN2JtbDVyOXNoOHFwMm1vc3ZnNzBmbGwuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI3MDc5OTM4Nzk4MTEtYW5iZ3I4MXJqN2JtbDVyOXNoOHFwMm1vc3ZnNzBmbGwuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDEyNTg2NTIwNDMxMDAzODQ1NzUiLCJlbWFpbCI6InB1cnZpcmF3YWwud29ya0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6Imw0MDB0NTdVTDNnNFY1eXE0eDRVZ0EiLCJuYW1lIjoiUHVydmkgUmF3YWwiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUdObXl4YXZuTjdYSE9KbnVqaG0yUFRXRlNsVkFQWVcxaE9aQ3ZieVdjMXQ9czk2LWMiLCJnaXZlbl9uYW1lIjoiUHVydmkiLCJmYW1pbHlfbmFtZSI6IlJhd2FsIiwibG9jYWxlIjoiZW4iLCJpYXQiOjE2ODE0OTM2NzMsImV4cCI6MTY4MTQ5NzI3M30.os38eK8AIyp57eHjqVXeEBGaR3nS-JILHYBIxlTw871Ev0RtikzGTEyN9wwCTxk_dOXpozYL2CZlcttxkM0aNYr-fJPL6t2KG2b8A3wP-hCfMlfVj1i-CeqLOZ_1cHb7llDJOOSu4Jg7I6ZyGtKOyQPVH64DpvuaivCy1L5Xti1-wVYOVvE8dtCsS_0zMbO0eZzyDLR5vyJWtDuAo2CVEp9bWOV74Pln8R9ugKfv_2STeTzhe2yfEOeueiMA4wBAaXNkIoQFyGYcSw-LOIrfWLMcC6H7TpQIWLUHlIlSxGMBVtDz232MYS_4sAlAFrssIhx2LEkRMRcrqTbNYZ80hg', 'expires_at': 1681497271.798075}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:googleapiclient.discovery:URL being requested: GET https://people.googleapis.com/v1/people/me/connections?pageSize=25&personFields=names%2CemailAddresses%2CphoneNumbers%2Caddresses&alt=json
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:34:34] "GET /user_contact_info?state=3FtndteJBSY50Fq3OP9am5OQ2zQJ21&code=4%2F0AVHEtk62aX54491JvBErsd1QSNMdQ7xcBfKs42nATpifrVMfyoT6AA7SeFw1nw7Zuyly6A&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcontacts&authuser=0&prompt=none HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:34:35] "[36mGET /static/css/mdb.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:34:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:34:35] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:34:35] "[36mGET /static/js/popper.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:34:35] "[36mGET /static/js/jquery.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:34:35] "[36mGET /static/js/mdb.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:34:35] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:35:34] "[32mGET /user_logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:35:34] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:35:34] "[36mGET /static/css/mdb.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:35:34] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:35:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:35:34] "[36mGET /static/js/jquery.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:35:34] "[36mGET /static/js/mdb.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:35:34] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:35:34] "[36mGET /static/js/popper.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Apr/2023 10:35:34] "[36mGET /static/img/wp.jpeg HTTP/1.1[0m" 304 -
