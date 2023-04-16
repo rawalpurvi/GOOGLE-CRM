@@ -106,6 +106,5 @@ Author
 
 Purvi Rawal
 
-Acknoledgemnts
-
+Acknowledgment
 Team of Google for the documents for Sign In with Google and People API.
